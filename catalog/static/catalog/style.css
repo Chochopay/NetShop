@@ -1,0 +1,472 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+
+    color: #1f2937;
+
+    background: #f5f7fb;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    top: -150px;
+    left: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(99, 102, 241, 0.15);
+
+    filter: blur(80px);
+
+    z-index: -1;
+
+    animation: float 8s ease-in-out infinite;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    bottom: -120px;
+
+    border-radius: 50%;
+
+    background: rgba(14, 165, 233, 0.13);
+
+    filter: blur(80px);
+
+    z-index: -1;
+
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(30px, -20px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+
+    padding: 18px 40px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header h1 {
+    margin: 0;
+
+    font-size: 24px;
+
+    color: #111827;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: min(1100px, 90%);
+
+    margin: 50px auto;
+
+    animation: appear 0.6s ease;
+}
+
+.container > h2 {
+    margin-bottom: 25px;
+
+    font-size: 28px;
+
+    color: #111827;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+.product-card {
+    padding: 18px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.product-image {
+    display: block;
+
+    width: 100%;
+    height: 210px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.04);
+}
+
+
+/* =========================
+   PRODUCT TEXT
+========================= */
+
+.product-card h3 {
+    margin: 16px 0 8px;
+
+    font-size: 20px;
+
+    color: #111827;
+}
+
+.product-card p {
+    margin: 8px 0;
+
+    line-height: 1.5;
+
+    color: #64748b;
+}
+
+.product-card .price {
+    margin-top: 15px;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    color: #4f46e5;
+}
+
+
+/* =========================
+   FORM CONTAINER
+========================= */
+
+.form-container {
+    width: min(450px, 90%);
+
+    margin: 70px auto;
+
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+
+    animation: appear 0.6s ease;
+}
+
+.form-container h1 {
+    margin: 0 0 30px;
+
+    font-size: 28px;
+
+    color: #111827;
+}
+
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+    color: #1f2937;
+
+    background: white;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #6366f1;
+
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+
+/* =========================
+   FILE INPUT
+========================= */
+
+.form-group input[type="file"] {
+    padding: 10px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.button {
+    display: inline-block;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.button:hover {
+    background: #4338ca;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+    margin-bottom: 20px;
+
+    padding: 12px 14px;
+
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 10px;
+
+    color: #dc2626;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.navigation a {
+    padding: 8px 14px;
+
+    border-radius: 8px;
+
+    color: #475569;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.navigation a:hover {
+    color: #4f46e5;
+
+    background: #eef2ff;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header {
+        padding: 18px 25px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 92%;
+
+        margin-top: 30px;
+    }
+
+    .form-container {
+        width: 92%;
+
+        margin-top: 40px;
+
+        padding: 25px;
+    }
+
+    .header {
+        padding: 16px 20px;
+    }
+}
